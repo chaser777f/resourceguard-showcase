@@ -18,6 +18,22 @@ Match rows by a stable ID and see each field's before-and-after value. Reorderin
 
 Blank and duplicate IDs are surfaced for correction before applying. New IDs are skipped, while resources missing from the CSV are kept. This build updates existing resources only; it does not create or delete them.
 
+## My guided manual self-test
+
+On September 25, 2026, I opened the ResourceGuard demo in Godot 4.7 on Windows and used **Try ID errors**. I followed step-by-step AI guidance, checked the displayed results myself, and supplied the screenshot below. This is a project-owner self-test, not an independent usability review.
+
+| Test detail | Record |
+| --- | --- |
+| Input | The supplied `demo/combined.csv` fixture with deliberately invalid IDs; I did not create or edit this fixture during the test |
+| Expected | Flag the blank and duplicate IDs and disable Apply |
+| Observed | Blank ID at CSV record 35; duplicate `item_010` at records 2 and 45; two input issues reported |
+| Apply control | I confirmed **Apply previewed updates** was grayed out; the screenshot also shows it disabled |
+| Result | **Pass for this specific UI check**: both ID problems were surfaced and Apply was disabled |
+
+CSV record numbers include the header. This check did not exercise applying valid changes, backups, restore, or editing a CSV in a spreadsheet application. No before-and-after file comparison was performed, so it does not independently establish that files were unchanged.
+
+![Chase's manual self-test screenshot showing blank and duplicate ID errors and the disabled Apply previewed updates button](images/manual-id-check.png)
+
 ## Back up, apply, restore
 
 ![The confirmation dialog explains which resources will change, that original files will be backed up, and that all reviewed changes will be applied.](images/backup-confirmation.png)
