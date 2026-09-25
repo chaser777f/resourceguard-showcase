@@ -42,6 +42,32 @@ Before writing, the confirmation explains the update and backup behavior. Change
 
 Filtering the review table does not limit an update: applying includes all reviewed changes, even rows hidden by a search.
 
+## My guided apply-and-restore self-test
+
+Later on September 25, 2026, I used **Try balance edit** with the supplied `demo/value_changes.csv`, applied the update, and checked both resources in Godot's Inspector. I then used **Restore last update** and inspected the same values again. I performed the clicks and supplied these screenshots while following AI guidance.
+
+| Check | Expected | Observed in my screenshots |
+| --- | --- | --- |
+| Apply result | Two resources updated with a backup | Panel reported “Updated 2 existing resources. Backup saved.” and zero pending changes |
+| `item_001.damage` after apply | 15 | 15 in the Inspector |
+| `item_002.price` after apply | 27 | 27 in the Inspector |
+| `item_001.damage` after restore | 12 | 12 in the Inspector |
+| `item_002.price` after restore | 20 | 20 in the Inspector |
+
+**Result: pass for the two inspected values through apply and restore.** Backup creation was reported by the application; I did not separately inspect the backup files or compare every resource byte-for-byte. This test used a supplied CSV, not one I edited in a spreadsheet application.
+
+<details>
+<summary>View my apply result and Inspector screenshots</summary>
+
+![Apply result reports two resources updated and backup saved](images/manual-apply-result.png)
+
+| Resource | After applying | After restoring |
+| --- | --- | --- |
+| Item 001 damage | ![Damage is 15 after applying](images/manual-applied-damage.png) | ![Damage is 12 after restoring](images/manual-restored-damage.png) |
+| Item 002 price | ![Price is 27 after applying](images/manual-applied-price.png) | ![Price is 20 after restoring](images/manual-restored-price.png) |
+
+</details>
+
 ## The workflow
 
 1. Select a folder of existing `.tres` resources that share a GDScript schema and a unique String or StringName ID field.
