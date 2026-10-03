@@ -4,6 +4,8 @@
 
 ResourceGuard is an in-development Godot editor add-on for balancing existing resource values through CSV files. Export a starter spreadsheet, edit it, inspect the differences, then apply the reviewed changes with backups.
 
+I'm Chase, the project owner. I performed the guided manual self-tests documented below: I operated the editor, checked the displayed resource values, and supplied screenshots while following AI guidance.
+
 This repository is a visual showcase. It contains screenshots and documentation only; the add-on source and downloadable packages are not published here. ResourceGuard runs inside the Godot editor, not in a browser.
 
 ## Review the changes
